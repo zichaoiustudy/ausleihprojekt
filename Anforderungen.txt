@@ -1,5 +1,6 @@
 Ziele der Mini-App:
 
+Die Mini-Web-App dient als digitales Ausleihsystem für Geräte wie Laptops, Handys und andere technische Ausstattungen.
 
 Funtionale Anforderungen:
 
