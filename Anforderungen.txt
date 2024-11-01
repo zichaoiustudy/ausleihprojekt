@@ -1,1 +1,32 @@
-Test 18
+Ziele der Mini-App:
+
+
+Funtionale Anforderungen:
+
+1. Benutzer sollten eine grafische Benutzeroberfläche bedienen können.
+2. Benutzer sollten Geräte ausleihen können.
+3. Benutzer sollten Geräte zurückgeben können.
+4. Benutzer sollten die verfügbaren Geräte sehen können.
+5. Die Daten sollten in einer Datenbank gespeichert werden.
+6. Benutzer sollten die Daten in einem Kalender visualisieren können.
+
+Nicht funktionale Anforderungen:
+
+1. Benutzer sollten die Geräte suchen können.
+2. Die Suchenergebnisse sollten gesortiert werden können.
+3. Ein Admin sollte die CRUD-Operationen durchführen können.
+4. Die Ausleihdauer sollte begrenzt werden.
+
+Geräte-class:
+- id: int               // eindeutige ID
+- device : string       // Name des Geräts (Phone/Camera/Keyboard...)
+- typ: string           // Typ des Geräts (iPhone 13 mini 128gb red/Canon EOS 2000D Kit 18-55mm IS II/...)
+- status: enum          // Status des Geräts (available/rented/missing)
+- date: array(date)     // Ausleihdatum und Rückgabedatum ([2024.04.01-2024.04.15, 2024.05.20-2024.05.25, ...])
+
+Buchung-class:
+- id: int               // eindeutige ID
+- device_id: int        // ID des Geräts
+- user_name: string     // Name des Benutzers
+- borrow_date: date     // Ausleihdatum
+- return_date: date     // Rückgabedatum
