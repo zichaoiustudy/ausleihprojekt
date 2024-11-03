@@ -3,6 +3,14 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
+    "@fullcalendar/core": "6.1.9",
+    "@fullcalendar/daygrid": "6.1.9",
+    "@fullcalendar/interaction": "6.1.9",
+    "@fullcalendar/list": "6.1.9",
+    "@fullcalendar/moment": "6.1.9",
+    "@fullcalendar/moment-timezone": "6.1.9",
+    "@fullcalendar/multimonth": "6.1.9",
+    "@fullcalendar/timegrid": "6.1.9",
     "@polymer/polymer": "3.5.2",
     "@vaadin/bundles": "24.5.1",
     "@vaadin/common-frontend": "0.0.19",
@@ -17,6 +25,8 @@
     "construct-style-sheets-polyfill": "3.1.0",
     "date-fns": "2.29.3",
     "lit": "3.2.1",
+    "moment": "2.29.4",
+    "moment-timezone": "0.5.40",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.26.2"
@@ -44,6 +54,14 @@
   },
   "vaadin": {
     "dependencies": {
+      "@fullcalendar/core": "6.1.9",
+      "@fullcalendar/daygrid": "6.1.9",
+      "@fullcalendar/interaction": "6.1.9",
+      "@fullcalendar/list": "6.1.9",
+      "@fullcalendar/moment": "6.1.9",
+      "@fullcalendar/moment-timezone": "6.1.9",
+      "@fullcalendar/multimonth": "6.1.9",
+      "@fullcalendar/timegrid": "6.1.9",
       "@polymer/polymer": "3.5.2",
       "@vaadin/bundles": "24.5.1",
       "@vaadin/common-frontend": "0.0.19",
@@ -58,6 +76,8 @@
       "construct-style-sheets-polyfill": "3.1.0",
       "date-fns": "2.29.3",
       "lit": "3.2.1",
+      "moment": "2.29.4",
+      "moment-timezone": "0.5.40",
       "react": "18.3.1",
       "react-dom": "18.3.1",
       "react-router-dom": "6.26.2"
@@ -83,7 +103,7 @@
       "workbox-core": "7.1.0",
       "workbox-precaching": "7.1.0"
     },
-    "hash": "b22db71df5a5872c7b62b2f2590e76be9fe6346e11732afe7da10dbb5dc3f128"
+    "hash": "2abc4ddf44d27ff8449dd22153258b3c7d4b3e3d3798ce53cda7926d9909871d"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -102,6 +122,16 @@
     "date-fns": "$date-fns",
     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
-    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles"
+    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
+    "@fullcalendar/interaction": "$@fullcalendar/interaction",
+    "@fullcalendar/timegrid": "$@fullcalendar/timegrid",
+    "@fullcalendar/core": "$@fullcalendar/core",
+    "@fullcalendar/list": "$@fullcalendar/list",
+    "moment": "$moment",
+    "moment-timezone": "$moment-timezone",
+    "@fullcalendar/multimonth": "$@fullcalendar/multimonth",
+    "@fullcalendar/moment": "$@fullcalendar/moment",
+    "@fullcalendar/moment-timezone": "$@fullcalendar/moment-timezone",
+    "@fullcalendar/daygrid": "$@fullcalendar/daygrid"
   }
 }
