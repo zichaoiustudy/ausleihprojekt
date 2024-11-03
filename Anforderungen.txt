@@ -21,9 +21,9 @@ Nicht funktionale Anforderungen:
 Geräte-class:
 - id: int               // eindeutige ID
 - device : string       // Name des Geräts (Phone/Camera/Keyboard...)
-- typ: string           // Typ des Geräts (iPhone 13 mini 128gb red/Canon EOS 2000D Kit 18-55mm IS II/...)
+- type: string          // Typ des Geräts (iPhone 13 mini 128gb red/Canon EOS 2000D Kit 18-55mm IS II/...)
 - status: enum          // Status des Geräts (available/rented/missing)
-- date: array(date)     // Ausleihdatum und Rückgabedatum ([2024.04.01-2024.04.15, 2024.05.20-2024.05.25, ...])
+- /*date: array(date)     // Ausleihdatum und Rückgabedatum ([2024.04.01-2024.04.15, 2024.05.20-2024.05.25, ...])*/
 
 Buchung-class:
 - id: int               // eindeutige ID
@@ -31,3 +31,4 @@ Buchung-class:
 - user_name: string     // Name des Benutzers
 - borrow_date: date     // Ausleihdatum
 - return_date: date     // Rückgabedatum
+- max_days: int         // Maximale Ausleihdauer
