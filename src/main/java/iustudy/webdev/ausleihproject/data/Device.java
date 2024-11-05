@@ -13,8 +13,8 @@ import lombok.Setter;
 public class Device extends AbstractEntity{
 
     @NotNull
-    private String device;
     private String type;
+    private String model;
     @NotNull
     @Enumerated
     @Column(columnDefinition = "smallint")
@@ -22,9 +22,9 @@ public class Device extends AbstractEntity{
 
     public Device() {}
 
-    public Device(String device, String type, DeviceStatus status) {
-        this.device = device;
+    public Device(String type, String model, DeviceStatus status) {
         this.type = type;
+        this.model = model;
         this.status = status;
     }
 }
