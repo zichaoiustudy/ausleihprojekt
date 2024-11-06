@@ -2,6 +2,7 @@ package iustudy.webdev.ausleihproject.service;
 
 import iustudy.webdev.ausleihproject.data.Device;
 import iustudy.webdev.ausleihproject.data.DeviceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 public class DeviceService {
 
     final DeviceRepository deviceRepository;
+
+    @Autowired
     public DeviceService(DeviceRepository bookingRepository) {
         this.deviceRepository = bookingRepository;
     }

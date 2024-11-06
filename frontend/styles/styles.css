@@ -1,0 +1,63 @@
+/* styles.css */
+@keyframes popup {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup {
+    animation: popup 0.5s ease-in-out;
+}
+
+/* Add this CSS to your styles.css or in a <style> block */
+.shake {
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.centered-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 10%;
+}
+
+.top-aligned {
+    display: contents;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-aligned .search-bar {
+    justify-content: start;
+    padding-left: 2rem;
+}
+
+.clickable {
+    cursor: pointer;
+}

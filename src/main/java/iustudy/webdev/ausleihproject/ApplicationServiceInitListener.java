@@ -34,7 +34,24 @@ public class ApplicationServiceInitListener implements VaadinServiceInitListener
 		String[][] devices = {
 				{"Laptop", "Lenovo ThinkPad X1 2-in-1 Gen 9 (14' Intel)", "AVAILABLE"},
 				{"Laptop", "Lenovo Legion 7i Gen 9 (16' Intel)", "AVAILABLE"},
-				{"Phone", "iPhone 13 Pro Max 256GB graphite", "AVAILABLE"}
+				{"Phone", "iPhone 13 Pro Max 256GB graphite", "AVAILABLE"},
+				{"Tablet", "iPad Pro 12.9-inch (5th generation)", "AVAILABLE"},
+				{"Laptop", "Dell XPS 13 (9310)", "AVAILABLE"},
+				{"Phone", "Samsung Galaxy S21 Ultra", "AVAILABLE"},
+				{"Laptop", "HP Spectre x360 14", "AVAILABLE"},
+				{"Tablet", "Samsung Galaxy Tab S7+", "AVAILABLE"},
+				{"Phone", "Google Pixel 6 Pro", "AVAILABLE"},
+				{"Laptop", "Apple MacBook Pro 16-inch (2021)", "RENTED"},
+				{"Phone", "OnePlus 9 Pro", "MISSING"},
+				{"Tablet", "Microsoft Surface Pro 7", "AVAILABLE"},
+				{"Laptop", "Asus ROG Zephyrus G14", "AVAILABLE"},
+				{"Phone", "Sony Xperia 1 III", "AVAILABLE"},
+				{"Tablet", "Amazon Fire HD 10", "AVAILABLE"},
+				{"Laptop", "Acer Swift 3", "AVAILABLE"},
+				{"Phone", "Xiaomi Mi 11 Ultra", "AVAILABLE"},
+				{"Tablet", "Lenovo Tab P11 Pro", "AVAILABLE"},
+				{"Laptop", "Razer Blade 15", "AVAILABLE"},
+				{"Phone", "Oppo Find X3 Pro", "AVAILABLE"}
 		};
 
 		String[][] bookings = {
