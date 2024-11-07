@@ -15,7 +15,7 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.service.DeviceService;
+import iustudy.webdev.ausleihproject.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route(value = "", layout = MainLayout.class)
@@ -28,11 +28,12 @@ public class SearchView extends VerticalLayout {
     TextField filterText = new TextField();
     VerticalLayout centeredLayout = new VerticalLayout();
     VerticalLayout content = new VerticalLayout();
-    DeviceService deviceService;
+    MainService service;
 
     @Autowired
-    public SearchView(DeviceService deviceService) {
-        this.deviceService = deviceService;
+    public SearchView(MainService service) {
+        addClassName("main-page");
+        this.service = service;
         setSizeFull();
         configureGrid();
         setAlignItems(Alignment.CENTER);
@@ -57,6 +58,9 @@ public class SearchView extends VerticalLayout {
         grid.setColumns();
         grid.addColumn(Device::getType).setHeader("Typ").setSortable(true);
         grid.addColumn(Device::getModel).setHeader("Modell").setSortable(true);
+        grid.addColumn(device -> device.getMaxDays() == 0 ? "unbegrenzt" : String.valueOf(device.getMaxDays()))
+                .setHeader("Maximale Ausleihtage")
+                .setSortable(true);
 
         grid.addColumn(new ComponentRenderer<>(device -> {
             Span statusSpan = new Span(device.getStatus().toString());
@@ -89,9 +93,10 @@ public class SearchView extends VerticalLayout {
     private Component createSearchBar() {
         filterText.setPlaceholder("Welches Gerät suchen Sie gerade...");
         filterText.setClearButtonVisible(true);
-        filterText.setWidth("50%");
+        filterText.addClassName("search-field");
 
         Button searchButton = new Button("Suchen");
+        searchButton.addClassName("search-button");
         searchButton.addClickListener(clickEvent -> searchResult());
         searchButton.addClickShortcut(Key.ENTER);
 
@@ -103,7 +108,7 @@ public class SearchView extends VerticalLayout {
 
     private void searchResult() {
         content.setSizeFull();
-        grid.setItems(deviceService.searchDevices(filterText.getValue()));
+        grid.setItems(service.searchDevices(filterText.getValue()));
         grid.addClassName("popup");
         grid.setVisible(true);
         centeredLayout.remove(title);
@@ -111,7 +116,7 @@ public class SearchView extends VerticalLayout {
     }
 
     public void refreshSearchResult() {
-        filterText.setValue("");
+        filterText.clear();
         grid.setVisible(false);
         centeredLayout.removeAll();
         centeredLayout.add(title, createSearchBar());

@@ -2,39 +2,37 @@ package iustudy.webdev.ausleihproject.views;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.service.BookingService;
-import iustudy.webdev.ausleihproject.service.DeviceService;
+import iustudy.webdev.ausleihproject.data.DeviceStatus;
+import iustudy.webdev.ausleihproject.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.stefan.fullcalendar.FullCalendar;
 
-import java.util.Calendar;
-import java.util.List;
 import java.util.Optional;
 
 @Route(value = "booking/:deviceId", layout = MainLayout.class)
+@PageTitle("IU Webprogrammierung | Gerätedetails")
 @CssImport("./styles/styles.css")
 public class BookingView extends VerticalLayout implements BeforeEnterObserver {
-    private H2 label;
-    DeviceService deviceService;
-    BookingService bookingService;
+    MainService service;
     Device device;
+
+    HorizontalLayout header;
     FullCalendar calendar;
     BookingForm form;
 
     @Autowired
-    public BookingView(DeviceService deviceService, BookingService bookingService) {
-        this.deviceService = deviceService;
-        this.bookingService = bookingService;
+    public BookingView(MainService service) {
+        this.service = service;
         setSizeFull();
-        label = new H2();
+        header = new HorizontalLayout();
         form = new BookingForm();
 
-        add(label, getContent());
+        add(header, getContent());
     }
 
     @Override
@@ -42,13 +40,35 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         // Extract the deviceId parameter from the URL
         Optional<String> deviceId = event.getRouteParameters().get("deviceId");
         if (deviceId.isPresent()) {
-            device = deviceService.findDevice(Long.parseLong(deviceId.get()));
+            device = service.findDevice(Long.parseLong(deviceId.get()));
             configureForm();
-            label.setText("Device Model: " + device.getModel() + "\nBooking History: ");
-            // You can add additional logic here to load data based on the deviceId
+            configureHeader();
         } else {
-            label.setText("Device ID not found!");
+            header.add(new H3("Device ID not found!"));
         }
+    }
+
+    private String getStatusColor(DeviceStatus status) {
+        return switch (status) {
+            case RENTED -> "orange";
+            case MISSING -> "red";
+            default -> "green";
+        };
+    }
+
+    public void configureHeader() {
+        header.setWidthFull();
+        header.setPadding(true);
+        header.setJustifyContentMode(JustifyContentMode.BETWEEN);
+
+        H3 model = new H3("Gerätemodell: " + device.getModel());
+        H3 maxDays = new H3("Maximale Ausleihdauer: " + device.getMaxDays());
+
+        String statusText = "<span style='color:" + getStatusColor(device.getStatus()) + "'>" + device.getStatus().name().toLowerCase() + "</span>";
+        H3 status = new H3("Status: " + statusText);
+        status.getElement().setProperty("innerHTML", "Status: " + statusText);
+
+        header.add(model, maxDays, status);
     }
 
     private Component getContent() {
@@ -60,6 +80,6 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     private void configureForm() {
-        form.setBookingForm(bookingService, device);
+        form.setBookingForm(service, device);
     }
 }

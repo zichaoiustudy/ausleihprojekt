@@ -19,12 +19,13 @@ public class Device extends AbstractEntity{
     @Enumerated
     @Column(columnDefinition = "smallint")
     private DeviceStatus status;
+    private int maxDays;
 
     public Device() {}
 
-    public Device(String type, String model, DeviceStatus status) {
+    public Device(String type, String model, int maxDays) {
         this.type = type;
         this.model = model;
-        this.status = status;
+        this.maxDays = maxDays;
     }
 }

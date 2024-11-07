@@ -25,15 +25,13 @@ public class Booking extends AbstractEntity{
     private LocalDate borrowDate;
     @Nullable
     private LocalDate returnDate;
-    private int maxDays;
 
     public Booking() {}
 
-    public Booking(Device device, String userName, LocalDate borrowDate, @Nullable LocalDate returnDate, int maxDays) {
+    public Booking(Device device, String userName, LocalDate borrowDate, @Nullable LocalDate returnDate) {
         this.device = device;
         this.userName = userName;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
-        this.maxDays = maxDays;
     }
 }
