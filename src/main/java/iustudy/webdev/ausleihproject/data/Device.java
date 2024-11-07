@@ -15,11 +15,11 @@ public class Device extends AbstractEntity{
     @NotNull
     private String type;
     private String model;
+    private int maxDays;
     @NotNull
     @Enumerated
     @Column(columnDefinition = "smallint")
     private DeviceStatus status;
-    private int maxDays;
 
     public Device() {}
 

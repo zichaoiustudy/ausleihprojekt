@@ -33,7 +33,7 @@ public class MainService {
 
     // save
 
-    public void createDevice(Device device) {
+    public void saveDevice(Device device) {
         if (device == null) {
             System.err.println("Device is null!");
             return;
@@ -63,7 +63,7 @@ public class MainService {
     }
 
     // delete
-    public void deleteDevice(long id) { deviceRepository.deleteById(id); }
+    public void deleteDevice(Device device) { deviceRepository.delete(device); }
 
     // booking methods
     // find
@@ -90,5 +90,5 @@ public class MainService {
     }
 
     // delete
-    public void deleteBooking(long id) { bookingRepository.deleteById(id); }
+    public void deleteBooking(Booking booking) { bookingRepository.delete(booking); }
 }

@@ -5,27 +5,22 @@ import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.service.MainService;
 
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | GeräteAusleihe")
 @CssImport("./styles/styles.css")
-public class SearchView extends VerticalLayout {
+public class IndexSearchView extends VerticalLayout {
     H2 title = new H2("Willkommen beim Geräteausleihsystem!");
     static TextField filterText = new TextField();
     VerticalLayout centeredLayout;
 
-    public SearchView() {
+    public IndexSearchView() {
         addClassName("main-page");
         setSizeFull();
         setAlignItems(Alignment.CENTER);

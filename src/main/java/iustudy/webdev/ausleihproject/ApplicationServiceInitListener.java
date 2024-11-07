@@ -28,10 +28,10 @@ public class ApplicationServiceInitListener implements VaadinServiceInitListener
 	private void initData() {
 
 		String[][] devices = {
-				{"Laptop", "Lenovo ThinkPad X1 2-in-1 Gen 9 (14' Intel)", "7"},
-				{"Laptop", "Lenovo Legion 7i Gen 9 (16' Intel)", "7"},
-				{"Phone", "iPhone 13 Pro Max 256GB graphite", "7"},
-				{"Tablet", "iPad Pro 12.9-inch (5th generation)", "7"}
+				{"Laptop", "Lenovo ThinkPad X1 2-in-1 Gen 9 (14' Intel)", "120"},
+				{"Laptop", "Lenovo Legion 7i Gen 9 (16' Intel)", "120"},
+				{"Phone", "iPhone 13 Pro Max 256GB graphite", "30"},
+				{"Tablet", "iPad Pro 12.9-inch (5th generation)", "30"}
 		};
 
 		String[][] bookings = {
@@ -39,7 +39,8 @@ public class ApplicationServiceInitListener implements VaadinServiceInitListener
 				{"0", "John Doe", "2023-04-25", ""},
 				{"2", "Sam Smith", "2023-04-25", "2023-05-30"},
 				{"1", "Lora Johansen", "2023-05-14", "2023-05-30"},
-				{"1", "Lora Johansen", "2024-02-14", ""}
+				{"1", "Lora Johansen", "2024-02-14", "2024-03-14"},
+				{"1", "Conor McGregor", "2024-11-07", ""}
 		};
 
 		Device[] deviceObjects = new Device[devices.length];
@@ -47,7 +48,7 @@ public class ApplicationServiceInitListener implements VaadinServiceInitListener
 		for (int i = 0; i < devices.length; i++) {
 			int maxDays = Integer.parseInt(devices[i][2]);
 			deviceObjects[i] = new Device(devices[i][0], devices[i][1], maxDays);
-			service.createDevice(deviceObjects[i]);
+			service.saveDevice(deviceObjects[i]);
 		}
 
 		for (String[] bookingData : bookings) {

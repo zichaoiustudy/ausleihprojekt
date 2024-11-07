@@ -1,4 +1,4 @@
-package iustudy.webdev.ausleihproject.views;
+package iustudy.webdev.ausleihproject.views.booking;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -7,12 +7,15 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
+import iustudy.webdev.ausleihproject.views.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.stefan.fullcalendar.FullCalendar;
 
 import java.util.Optional;
+
+import static iustudy.webdev.ausleihproject.views.SearchResultView.getStatusColor;
+import static iustudy.webdev.ausleihproject.views.SearchResultView.getStatusText;
 
 @Route(value = "booking/:deviceId", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | Gerätedetails")
@@ -48,14 +51,6 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         }
     }
 
-    private String getStatusColor(DeviceStatus status) {
-        return switch (status) {
-            case RENTED -> "orange";
-            case MISSING -> "red";
-            default -> "green";
-        };
-    }
-
     public void configureHeader() {
         header.removeAll();
         header.setWidthFull();
@@ -63,11 +58,16 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         header.setJustifyContentMode(JustifyContentMode.BETWEEN);
 
         H3 model = new H3("Gerätemodell: " + device.getModel());
-        H3 maxDays = new H3("Maximale Ausleihdauer: " + device.getMaxDays() + " Tage");
 
-        String statusText = "<span style='color:" + getStatusColor(device.getStatus()) + "'>" + device.getStatus().name().toLowerCase() + "</span>";
-        H3 status = new H3("Status: " + statusText);
-        status.getElement().setProperty("innerHTML", "Status: " + statusText);
+        H3 maxDays = new H3("Maximale Ausleihdauer: " +
+                (device.getMaxDays() == 0 ? "unbegrenzt" : device.getMaxDays() + " Tage"));
+
+        String statusText = getStatusText(device.getStatus());
+        String color = getStatusColor(device.getStatus());
+
+        String statusHtml = "<span style='color:" + color + "'>" + statusText + "</span>";
+        H3 status = new H3("Status: " + statusHtml);
+        status.getElement().setProperty("innerHTML", "Status: " + statusHtml);
 
         header.add(model, maxDays, status);
     }

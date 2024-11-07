@@ -1,4 +1,4 @@
-package iustudy.webdev.ausleihproject.views;
+package iustudy.webdev.ausleihproject.views.booking;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static iustudy.webdev.ausleihproject.views.SearchView.searchResult;
+import static iustudy.webdev.ausleihproject.views.IndexSearchView.searchResult;
 
 public class BookingForm extends VerticalLayout {
 

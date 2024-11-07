@@ -8,26 +8,24 @@ import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
-import static iustudy.webdev.ausleihproject.views.SearchView.filterText;
+import static iustudy.webdev.ausleihproject.views.IndexSearchView.filterText;
 
 @CssImport("./styles/styles.css")
 public class MainLayout extends AppLayout {
+    static public H3 logo = new H3("IU Webprogrammierung | GeräteAusleihe");
 
     public MainLayout() {
         createHeader();
     }
 
     private void createHeader() {
-        H3 logo = new H3("IU Webprogrammierung | GeräteAusleih");
-        logo.addClassName("clickable");
-        logo.addClickListener(clickEvent -> {
-            filterText.clear();
-            UI.getCurrent().navigate("/");
-        });
+        logo.addClassName("logo");
+        logo.addClickListener(clickEvent -> switchToUser());
 
-        Button userSwitch = new Button("Admin", e -> switchToAdmin());
+        Button adminSwitch = new Button("Admin", e -> switchToAdmin());
+        adminSwitch.addClassName("switch-button");
 
-        var header = new HorizontalLayout(logo, userSwitch);
+        var header = new HorizontalLayout(logo, adminSwitch);
 
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(logo);
@@ -36,6 +34,12 @@ public class MainLayout extends AppLayout {
     }
 
     private void switchToAdmin() {
-
+        UI.getCurrent().navigate("/admin-device");
     }
+
+    public static void switchToUser() {
+        filterText.clear();
+        UI.getCurrent().navigate("/");
+    }
+
 }

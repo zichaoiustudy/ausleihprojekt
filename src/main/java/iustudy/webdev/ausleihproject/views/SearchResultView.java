@@ -9,12 +9,13 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
+import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-import static iustudy.webdev.ausleihproject.views.SearchView.createSearchBar;
+import static iustudy.webdev.ausleihproject.views.IndexSearchView.createSearchBar;
 
 @Route(value = "search-results", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | GeräteAusleihe")
@@ -57,21 +58,35 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
                 .setSortable(true);
 
         grid.addColumn(new ComponentRenderer<>(device -> {
-            Span statusSpan = new Span(device.getStatus().toString());
-            String color = switch (device.getStatus()) {
-                case RENTED -> "orange";
-                case MISSING -> "red";
-                default -> "green";
-            };
+            Span statusSpan = new Span();
+            String statusText = getStatusText(device.getStatus());
+            String color = getStatusColor(device.getStatus());
+
+            statusSpan.setText(statusText);
             statusSpan.getStyle().set("color", color);
             return statusSpan;
         })).setHeader("Status").setAutoWidth(true).setSortable(true).setComparator(Device::getStatus);
-
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
 
         grid.addItemClickListener(event -> {
             Device clickedDevice = event.getItem();
             UI.getCurrent().navigate("booking/" + clickedDevice.getId());
         });
+    }
+
+    public static String getStatusText(DeviceStatus status) {
+        return switch (status) {
+            case RENTED -> "vermietet";
+            case MISSING -> "fehlend";
+            default -> "verfügbar";
+        };
+    }
+
+    public static String getStatusColor(DeviceStatus status) {
+        return switch (status) {
+            case RENTED -> "orange";
+            case MISSING -> "red";
+            default -> "green";
+        };
     }
 }
