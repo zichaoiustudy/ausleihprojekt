@@ -8,21 +8,21 @@ import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
+import static iustudy.webdev.ausleihproject.views.SearchView.filterText;
+
 @CssImport("./styles/styles.css")
 public class MainLayout extends AppLayout {
-    SearchView searchView;
 
-    public MainLayout(SearchView searchView) {
+    public MainLayout() {
         createHeader();
-        this.searchView = searchView;
     }
 
     private void createHeader() {
         H3 logo = new H3("IU Webprogrammierung | GeräteAusleih");
         logo.addClassName("clickable");
         logo.addClickListener(clickEvent -> {
+            filterText.clear();
             UI.getCurrent().navigate("/");
-            searchView.refreshSearchResult();
         });
 
         Button userSwitch = new Button("Admin", e -> switchToAdmin());

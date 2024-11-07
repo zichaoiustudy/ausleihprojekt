@@ -4,7 +4,6 @@ import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
@@ -18,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static iustudy.webdev.ausleihproject.views.SearchView.searchResult;
+
 public class BookingForm extends VerticalLayout {
 
     Device device;
@@ -25,7 +26,6 @@ public class BookingForm extends VerticalLayout {
 
     Grid<Button> grid = new Grid<>(Button.class);
     TextField name = new TextField("Name");
-    Span warningMessage = new Span();
     Button book = new Button("Buchen");
     Button returnBook = new Button("Zurückgeben");
     Button close = new Button("Zurück");
@@ -37,13 +37,8 @@ public class BookingForm extends VerticalLayout {
         this.service = service;
         this.device = device;
 
-        renewForm();
-    }
-
-    private void renewForm() {
-        removeAll();
         configureGrid();
-        createButtonsLayout();
+        configureButtonsLayout();
         add(grid, buttons);
     }
 
@@ -57,6 +52,7 @@ public class BookingForm extends VerticalLayout {
             button.setText(booking.getBorrowDate().format(formatter) + " - " + returnDate);
             bookingListButtons.add(button);
         }
+        grid.removeAllColumns();
 
         grid.setSizeFull();
         grid.setColumns();
@@ -66,19 +62,19 @@ public class BookingForm extends VerticalLayout {
         grid.getStyle().set("border", "none");
     }
 
-    private void createButtonsLayout() {
+    private void configureButtonsLayout() {
         buttons.removeAll();
 
         book.addClickShortcut(Key.ENTER);
         returnBook.addClickShortcut(Key.ENTER);
         close.addClickShortcut(Key.ESCAPE);
 
-        close.addClickListener(e -> UI.getCurrent().navigate("/"));
+        close.addClickListener(e -> searchResult());
         book.addClickListener(e -> newBooking());
         returnBook.addClickListener(e -> returnDevice());
 
         if (device.getStatus().name().equals("AVAILABLE")) {
-            buttons.add(name, warningMessage, book, close);
+            buttons.add(name, book, close);
         } else {
             buttons.add(returnBook, close);
         }
@@ -86,22 +82,19 @@ public class BookingForm extends VerticalLayout {
 
     public void newBooking() {
         Booking booking = new Booking();
-        warningMessage.setText("Bitte Name eingeben!");
-        warningMessage.getStyle().set("color", "red");
-        warningMessage.setVisible(false);
 
         if (name.getValue().isEmpty() || name.getValue().isBlank()) {
-            warningMessage.setVisible(true);
+            name.getStyle().set("--vaadin-input-field-helper-color", "red");
+            name.setHelperText("Bitte Name eingeben!");
             return;
         }
 
-        warningMessage.setVisible(false);
         booking.setUserName(name.getValue());
         booking.setDevice(device);
         booking.setBorrowDate(LocalDate.now());
 
         service.saveBooking(booking);
-        UI.getCurrent().navigate("/");
+        UI.getCurrent().navigate("/booking/" + device.getId());
     }
 
     public void returnDevice() {
@@ -109,7 +102,7 @@ public class BookingForm extends VerticalLayout {
         booking.setReturnDate(LocalDate.now());
 
         service.saveBooking(booking);
-        UI.getCurrent().navigate("/");
+        UI.getCurrent().navigate("/booking/" + device.getId());
     }
 
 }

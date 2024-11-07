@@ -57,12 +57,13 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     public void configureHeader() {
+        header.removeAll();
         header.setWidthFull();
         header.setPadding(true);
         header.setJustifyContentMode(JustifyContentMode.BETWEEN);
 
         H3 model = new H3("Gerätemodell: " + device.getModel());
-        H3 maxDays = new H3("Maximale Ausleihdauer: " + device.getMaxDays());
+        H3 maxDays = new H3("Maximale Ausleihdauer: " + device.getMaxDays() + " Tage");
 
         String statusText = "<span style='color:" + getStatusColor(device.getStatus()) + "'>" + device.getStatus().name().toLowerCase() + "</span>";
         H3 status = new H3("Status: " + statusText);

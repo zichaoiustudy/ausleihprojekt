@@ -56,6 +56,15 @@
     padding-left: 2rem;
 }
 
+.round-grid {
+    border-radius: 25px;
+}
+
+vaadin-grid.round-grid::part(header-cell) {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
 .clickable {
     cursor: pointer;
 }
