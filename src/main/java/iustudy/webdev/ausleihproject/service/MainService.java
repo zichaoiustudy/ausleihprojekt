@@ -50,7 +50,8 @@ public class MainService {
 
         Booking lastBooking = findLastBooking(device);
         if (lastBooking != null && lastBooking.getReturnDate() == null) {
-            if (lastBooking.getBorrowDate().plusDays(device.getMaxDays()).isAfter(LocalDate.now()) || device.getMaxDays() == 0) {
+            if (lastBooking.getBorrowDate().plusDays(device.getMaxDays()).isAfter(LocalDate.now())
+                    || device.getMaxDays() == 0) {
                 device.setStatus(DeviceStatus.RENTED);
             } else {
                 device.setStatus(DeviceStatus.MISSING);
@@ -58,7 +59,6 @@ public class MainService {
         } else {
             device.setStatus(DeviceStatus.AVAILABLE);
         }
-
         deviceRepository.save(device);
     }
 
@@ -76,6 +76,12 @@ public class MainService {
             return null;
         }
         return findBookingsByDevice(device).get(findBookingsByDevice(device).size() - 1);
+    }
+
+    public List<Booking> searchBookings(String searchTerm) {
+        if (searchTerm == null || searchTerm.isEmpty() || searchTerm.isBlank())
+            return findAllBookings();
+        else return bookingRepository.search(searchTerm);
     }
 
     //save

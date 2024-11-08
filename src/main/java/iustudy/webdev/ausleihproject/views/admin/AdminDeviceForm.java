@@ -12,6 +12,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.shared.Registration;
 import iustudy.webdev.ausleihproject.data.Device;
+import lombok.Getter;
 
 public class AdminDeviceForm extends FormLayout {
 
@@ -59,6 +60,7 @@ public class AdminDeviceForm extends FormLayout {
     }
 
     // Events
+    @Getter
     public static abstract class AdminDeviceFormEvent extends ComponentEvent<AdminDeviceForm> {
         private Device device;
 
@@ -67,9 +69,6 @@ public class AdminDeviceForm extends FormLayout {
             this.device = device;
         }
 
-        public Device getDevice() {
-            return device;
-        }
     }
 
     public static class SaveEvent extends AdminDeviceFormEvent {

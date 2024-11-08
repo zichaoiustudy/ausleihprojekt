@@ -1,6 +1,7 @@
 package iustudy.webdev.ausleihproject.views.booking;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -11,7 +12,9 @@ import iustudy.webdev.ausleihproject.service.MainService;
 import iustudy.webdev.ausleihproject.views.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.stefan.fullcalendar.FullCalendar;
+import org.vaadin.stefan.fullcalendar.FullCalendarBuilder;
 
+import java.util.Calendar;
 import java.util.Optional;
 
 import static iustudy.webdev.ausleihproject.views.SearchResultView.getStatusColor;
@@ -35,6 +38,7 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         header = new HorizontalLayout();
         form = new BookingForm();
 
+        creatCalendar();
         add(header, getContent());
     }
 
@@ -73,8 +77,8 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     private Component getContent() {
-        HorizontalLayout content = new HorizontalLayout(form);
-        //content.setFlexGrow(2, calendar);
+        HorizontalLayout content = new HorizontalLayout(calendar, form);
+        content.setFlexGrow(2, calendar);
         content.setFlexGrow(1, form);
         content.setSizeFull();
         return content;
@@ -82,5 +86,10 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
 
     private void configureForm() {
         form.setBookingForm(service, device);
+    }
+
+    private void creatCalendar() {
+        calendar = FullCalendarBuilder.create().build();
+        calendar.setSizeFull();
     }
 }
