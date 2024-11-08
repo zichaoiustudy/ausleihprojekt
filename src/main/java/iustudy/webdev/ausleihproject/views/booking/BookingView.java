@@ -1,7 +1,6 @@
 package iustudy.webdev.ausleihproject.views.booking;
 
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -14,11 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.stefan.fullcalendar.FullCalendar;
 import org.vaadin.stefan.fullcalendar.FullCalendarBuilder;
 
-import java.util.Calendar;
 import java.util.Optional;
 
-import static iustudy.webdev.ausleihproject.views.SearchResultView.getStatusColor;
-import static iustudy.webdev.ausleihproject.views.SearchResultView.getStatusText;
+import static iustudy.webdev.ausleihproject.views.search.SearchResultView.getStatusColor;
+import static iustudy.webdev.ausleihproject.views.search.SearchResultView.getStatusText;
 
 @Route(value = "booking/:deviceId", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | Gerätedetails")
@@ -38,7 +36,6 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         header = new HorizontalLayout();
         form = new BookingForm();
 
-        creatCalendar();
         add(header, getContent());
     }
 
@@ -48,7 +45,8 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         Optional<String> deviceId = event.getRouteParameters().get("deviceId");
         if (deviceId.isPresent()) {
             device = service.findDevice(Long.parseLong(deviceId.get()));
-            configureForm();
+            form.setBookingForm(service, device);
+
             configureHeader();
         } else {
             header.add(new H3("Device ID not found!"));
@@ -77,15 +75,11 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     private Component getContent() {
-        HorizontalLayout content = new HorizontalLayout(calendar, form);
-        content.setFlexGrow(2, calendar);
+        HorizontalLayout content = new HorizontalLayout(form);
+        //content.setFlexGrow(2, calendar);
         content.setFlexGrow(1, form);
         content.setSizeFull();
         return content;
-    }
-
-    private void configureForm() {
-        form.setBookingForm(service, device);
     }
 
     private void creatCalendar() {

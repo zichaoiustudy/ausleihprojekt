@@ -1,29 +1,27 @@
-package iustudy.webdev.ausleihproject.views;
+package iustudy.webdev.ausleihproject.views.search;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
 import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
+import iustudy.webdev.ausleihproject.views.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
-import static iustudy.webdev.ausleihproject.views.IndexSearchView.createSearchBar;
 
 @Route(value = "search-results", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | GeräteAusleihe")
 @CssImport("./styles/styles.css")
 public class SearchResultView extends VerticalLayout implements BeforeEnterObserver {
-    Grid<Device> grid = new Grid<>(Device.class);
-    TextField filterText = new TextField();
-    MainService service;
+    private final Grid<Device> grid = new Grid<>(Device.class);
+    private final SearchBar searchBar;
+    private final MainService service;
 
     @Autowired
     public SearchResultView(MainService service) {
@@ -32,7 +30,9 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
         setSizeFull();
         setAlignItems(Alignment.CENTER);
 
-        VerticalLayout centeredLayout = new VerticalLayout(createSearchBar());
+        searchBar = new SearchBar(query -> UI.getCurrent().navigate("search-results?query=" + query));
+
+        VerticalLayout centeredLayout = new VerticalLayout(searchBar);
         centeredLayout.addClassName("top-aligned");
         centeredLayout.setSizeFull();
 
@@ -43,8 +43,8 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
         String query = event.getLocation().getQueryParameters().getParameters().getOrDefault("query", List.of("")).get(0);
-        filterText.setValue(query);
-        grid.setItems(service.searchDevices(query));
+        searchBar.setQuery(query); // Set the initial query in the search bar
+        grid.setItems(service.searchDevices(query)); // Fetch results based on query
     }
 
     private void configureGrid() {
@@ -89,4 +89,5 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
             default -> "green";
         };
     }
+
 }

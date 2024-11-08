@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static iustudy.webdev.ausleihproject.views.IndexSearchView.searchResult;
+import static iustudy.webdev.ausleihproject.views.search.SearchBar.getQuery;
 
 public class BookingForm extends VerticalLayout {
 
@@ -69,7 +69,7 @@ public class BookingForm extends VerticalLayout {
         returnBook.addClickShortcut(Key.ENTER);
         close.addClickShortcut(Key.ESCAPE);
 
-        close.addClickListener(e -> searchResult());
+        close.addClickListener(e -> UI.getCurrent().navigate("search-results?query=" + getQuery()));
         book.addClickListener(e -> newBooking());
         returnBook.addClickListener(e -> returnDevice());
 

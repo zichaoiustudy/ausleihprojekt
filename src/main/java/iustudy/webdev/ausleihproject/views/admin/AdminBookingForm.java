@@ -17,13 +17,11 @@ import iustudy.webdev.ausleihproject.data.Booking;
 import iustudy.webdev.ausleihproject.data.Device;
 import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AdminBookingForm extends FormLayout {
 
-    ComboBox<Device> deviceType = new ComboBox<>("Device Type");
+    ComboBox<String> deviceType = new ComboBox<>("Device Type");
     ComboBox<Device> device = new ComboBox<>("Device");
     TextField userName = new TextField("User Name");
     DatePicker borrowDate = new DatePicker("Borrow Date");
@@ -38,25 +36,38 @@ public class AdminBookingForm extends FormLayout {
     public void setBooking(Booking booking){
         binder.setBean(booking);
     }
+
     public AdminBookingForm(List<Device> devices) {
-        binder.bindInstanceFields(this);
 
-//        List<Device> deviceTypes = devices.stream()
-//                .collect(Collectors.collectingAndThen(
-//                        Collectors.toMap(Device::getType, device -> device, (d1, d2) -> d1),
-//                        map -> new ArrayList<>(map.values())));
-//        deviceType.setItems(deviceTypes);
-//        deviceType.setItemLabelGenerator(Device::getType);
-//        deviceType.addValueChangeListener(e -> {
-//            Device selectedDeviceType = e.getValue();
-//            String selectedType = selectedDeviceType != null ? selectedDeviceType.getType() : null;
-//            List<Device> filteredDevices = devices.stream()
-//                    .filter(d -> d.getType().equals(selectedType))
-//                    .toList();
-//            device.setItems(filteredDevices);
-//        });
+        List<String> deviceTypes = devices.stream().map(Device::getType).distinct().toList();
+        deviceType.setItems(deviceTypes);
 
-        deviceType.setItemLabelGenerator(Device::getType);
+        binder.forField(deviceType)
+                .withConverter(
+                        type -> {
+                            // Convert from device type String to Device (for saving to Booking)
+                            return devices.stream()
+                                    .filter(d -> d.getType().equals(type))
+                                    .findFirst()
+                                    .orElse(null);
+                        },
+                        deviceObj -> {
+                            // Convert from Device to device type String (for displaying in deviceType ComboBox)
+                            return deviceObj != null ? deviceObj.getType() : "";
+                        }
+                ).bind(Booking::getDevice, Booking::setDevice);
+        binder.forField(device).bind(Booking::getDevice, Booking::setDevice);
+        binder.forField(userName).bind(Booking::getUserName, Booking::setUserName);
+        binder.forField(borrowDate).bind(Booking::getBorrowDate, Booking::setBorrowDate);
+        binder.forField(returnDate).bind(Booking::getReturnDate, Booking::setReturnDate);
+
+        deviceType.addValueChangeListener(e -> {
+            String selectedType = e.getValue();
+            List<Device> filteredDevices = devices.stream().filter(d -> d.getType().equals(selectedType)).toList();
+            device.setItems(filteredDevices);
+            device.clear();
+        });
+
         device.setItemLabelGenerator(Device::getModel);
 
         add(deviceType,
@@ -98,7 +109,6 @@ public class AdminBookingForm extends FormLayout {
             super(source, false);
             this.booking = booking;
         }
-
     }
 
     public static class SaveEvent extends AdminBookingForm.AdminBookingFormEvent {
