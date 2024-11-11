@@ -1,0 +1,57 @@
+:root {
+    /*--fc-border-color: rgba(0, 0, 0, 0.1); */
+}
+
+.calendar {
+
+}
+
+.entry {
+    min-height: 40px;
+    border-radius: 17px;
+    opacity: 75%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*
+.fc .fc-daygrid-day {
+    background-color: lightgoldenrodyellow;
+    border-radius: 5px;
+}
+
+.fc .fc-daygrid-body{
+
+}
+
+.fc .fc-col-header {
+    border-radius: 25px 25px 0 0;
+    background-color: beige;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+}
+*/
+
+.calendar-toolbar {
+    gap: 5px;
+}
+
+.calendar-toolbar button {
+    border-radius: 5px;
+    font-size: 10px;
+    margin: 0;
+}
+
+#period-previous-button {
+    border-radius: 25px 5px 5px 25px;
+}
+
+#period-picker {
+
+}
+
+#period-next-button {
+    border-radius: 5px 25px 25px 5px;
+}
+
+#today-button {
+    border-radius: 25px;
+}

@@ -18,10 +18,10 @@ public class IndexSearchView extends VerticalLayout {
         setSizeFull();
         setAlignItems(Alignment.CENTER);
 
-        // Define what should happen when search is executed
-        SearchBar searchBar = new SearchBar(query -> UI.getCurrent().navigate("search-results?query=" + query));
-
+        SearchBar searchBar = new SearchBar(query ->
+                UI.getCurrent().navigate("search-results?query=" + query));
         H2 title = new H2("Willkommen beim Geräteausleihsystem!");
+
         VerticalLayout centeredLayout = new VerticalLayout(title, searchBar);
         centeredLayout.addClassName("centered-layout");
         centeredLayout.setSizeFull();

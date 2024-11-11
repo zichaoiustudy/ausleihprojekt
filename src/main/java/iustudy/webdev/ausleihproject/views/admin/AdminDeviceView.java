@@ -13,8 +13,6 @@ import iustudy.webdev.ausleihproject.data.Device;
 import iustudy.webdev.ausleihproject.service.MainService;
 import iustudy.webdev.ausleihproject.views.AdminLayout;
 
-import java.util.Collections;
-
 @Route(value = "admin-device", layout = AdminLayout.class)
 @PageTitle("IU Webprogrammierung | Admin")
 public class AdminDeviceView extends VerticalLayout {

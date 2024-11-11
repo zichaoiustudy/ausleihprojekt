@@ -1,17 +1,19 @@
 package iustudy.webdev.ausleihproject.views.booking;
 
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
+import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
 import iustudy.webdev.ausleihproject.views.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.vaadin.stefan.fullcalendar.FullCalendar;
-import org.vaadin.stefan.fullcalendar.FullCalendarBuilder;
 
 import java.util.Optional;
 
@@ -20,13 +22,12 @@ import static iustudy.webdev.ausleihproject.views.search.SearchResultView.getSta
 
 @Route(value = "booking/:deviceId", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | Gerätedetails")
-@CssImport("./styles/styles.css")
 public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     MainService service;
     Device device;
 
     HorizontalLayout header;
-    FullCalendar calendar;
+    CalendarView calendar;
     BookingForm form;
 
     @Autowired
@@ -35,6 +36,7 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         setSizeFull();
         header = new HorizontalLayout();
         form = new BookingForm();
+        calendar = new CalendarView(form);
 
         add(header, getContent());
     }
@@ -45,22 +47,22 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         Optional<String> deviceId = event.getRouteParameters().get("deviceId");
         if (deviceId.isPresent()) {
             device = service.findDevice(Long.parseLong(deviceId.get()));
-            form.setBookingForm(service, device);
+            form.setBookingForm(service, device, calendar);
 
             configureHeader();
+            showNotification();
         } else {
             header.add(new H3("Device ID not found!"));
         }
     }
 
-    public void configureHeader() {
+    private void configureHeader() {
         header.removeAll();
         header.setWidthFull();
-        header.setPadding(true);
+        header.getStyle().set("border-bottom", "1px solid var(--lumo-contrast-10pct)").setMargin("0");
         header.setJustifyContentMode(JustifyContentMode.BETWEEN);
 
         H3 model = new H3("Gerätemodell: " + device.getModel());
-
         H3 maxDays = new H3("Maximale Ausleihdauer: " +
                 (device.getMaxDays() == 0 ? "unbegrenzt" : device.getMaxDays() + " Tage"));
 
@@ -75,15 +77,37 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     private Component getContent() {
-        HorizontalLayout content = new HorizontalLayout(form);
-        //content.setFlexGrow(2, calendar);
+        HorizontalLayout content = new HorizontalLayout(calendar, form);
+        content.setFlexGrow(2, calendar);
         content.setFlexGrow(1, form);
         content.setSizeFull();
+
+        form.setWidth("30em");
         return content;
     }
 
-    private void creatCalendar() {
-        calendar = FullCalendarBuilder.create().build();
-        calendar.setSizeFull();
+    private void showNotification() {
+        Notification notification = new Notification();
+
+        Div text = new Div();
+
+        if (device.getStatus() == DeviceStatus.AVAILABLE) {
+            text.add(new Text("Um das Gerät auszuleihen, wählen Sie bitte ein gültiges Datum im Kalender und geben Sie Ihren Namen ein."));
+        } else {
+            text.add(new Text("Um das Gerät zurückzugeben, wählen Sie bitte ein gültiges Datum im Kalender und klicken Sie auf „Zurückgeben“."));
+        }
+
+        Button closeButton = new Button("Bestätigen");
+        closeButton.setAriaLabel("Close");
+        closeButton.addClickListener(event -> notification.close());
+
+        VerticalLayout layout = new VerticalLayout(text, closeButton);
+        layout.setWidth("400px");
+        layout.setAlignItems(Alignment.CENTER);
+
+        notification.add(layout);
+        notification.setPosition(Notification.Position.MIDDLE);
+        notification.open();
     }
+
 }

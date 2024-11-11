@@ -81,3 +81,33 @@ vaadin-grid.round-grid::part(header-cell) {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
+
+vaadin-grid.booking-grid::part(header-cell) {
+    font-size: 20px;
+}
+
+vaadin-grid.booking-grid::part(body-cell) {
+}
+
+.booking-button {
+    display: flex;
+    flex: 1;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.booking-button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(-1px) translateY(-1px);
+}
+
+.booking-history-button {
+    width: 100%;
+    color: gray;
+    background: transparent;
+    transition: transform 0.7s ease-in, transform 0.3s ease-out;
+}
+
+.booking-history-button:hover {
+    transform: scale(1.07) translateX(-7px);
+}

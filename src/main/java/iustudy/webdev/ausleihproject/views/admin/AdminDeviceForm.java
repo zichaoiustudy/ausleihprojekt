@@ -62,7 +62,7 @@ public class AdminDeviceForm extends FormLayout {
     // Events
     @Getter
     public static abstract class AdminDeviceFormEvent extends ComponentEvent<AdminDeviceForm> {
-        private Device device;
+        private final Device device;
 
         protected AdminDeviceFormEvent(AdminDeviceForm source, Device device) {
             super(source, false);

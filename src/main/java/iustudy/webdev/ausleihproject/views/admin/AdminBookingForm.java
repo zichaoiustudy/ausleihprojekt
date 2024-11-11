@@ -103,7 +103,7 @@ public class AdminBookingForm extends FormLayout {
     // Events
     @Getter
     public static abstract class AdminBookingFormEvent extends ComponentEvent<AdminBookingForm> {
-        private Booking booking;
+        private final Booking booking;
 
         protected AdminBookingFormEvent(AdminBookingForm source, Booking booking) {
             super(source, false);
