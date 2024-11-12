@@ -41,6 +41,7 @@ public class CalendarView extends AbstractCalendar{
             notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
             date = null;
         }
+        getToolbar().updateSelectedDateText(date);
         bookingForm.setSelectedDate(date);
     }
 

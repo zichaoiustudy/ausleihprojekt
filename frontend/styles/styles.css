@@ -83,6 +83,7 @@ vaadin-grid.round-grid::part(header-cell) {
 }
 
 vaadin-grid.booking-grid::part(header-cell) {
+    background-color: transparent;
     font-size: 20px;
 }
 

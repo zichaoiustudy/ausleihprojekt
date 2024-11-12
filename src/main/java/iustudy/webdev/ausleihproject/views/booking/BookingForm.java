@@ -67,7 +67,7 @@ public class BookingForm extends VerticalLayout {
             Button button = new Button();
             button.addThemeVariants(ButtonVariant.LUMO_TERTIARY_INLINE);
             button.addClassName("booking-history-button");
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
             String returnDate;
             if (booking.getReturnDate() == null) {

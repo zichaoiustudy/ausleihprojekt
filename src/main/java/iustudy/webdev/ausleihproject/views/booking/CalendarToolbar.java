@@ -4,6 +4,7 @@ import com.vaadin.flow.component.HasText;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import lombok.Builder;
@@ -17,7 +18,8 @@ import java.util.Locale;
 public class CalendarToolbar extends HorizontalLayout {
 
     private final FullCalendar calendar;
-    private Button buttonDatePicker;
+    Button buttonDatePicker;
+    Span pickDate;
 
     @Builder
     private CalendarToolbar(FullCalendar calendar) {
@@ -26,11 +28,12 @@ public class CalendarToolbar extends HorizontalLayout {
             throw new IllegalArgumentException("Calendar instance is required");
         }
 
-        addClassName("calendar-toolbar");
         initDateItems();
     }
 
     private void initDateItems() {
+        setWidthFull();
+
         Button prevButton = new Button(VaadinIcon.ANGLE_LEFT.create(), e -> calendar.previous());
         prevButton.setId("period-previous-button");
 
@@ -54,7 +57,26 @@ public class CalendarToolbar extends HorizontalLayout {
         Button todayButton = new Button("Heute", e -> calendar.today());
         todayButton.setId("today-button");
 
-        add(prevButton, buttonDatePicker, nextButton, todayButton);
+        pickDate = new Span("Ausgewähltes Datum: ");
+        pickDate.setId("selected-date-text");
+
+        HorizontalLayout buttons = new HorizontalLayout(prevButton, buttonDatePicker, nextButton, todayButton);
+        buttons.setJustifyContentMode(JustifyContentMode.CENTER);
+        buttons.addClassName("calendar-toolbar");
+
+        add(buttons, pickDate);
+    }
+
+    public void updateSelectedDateText(LocalDate date) {
+        remove(pickDate);
+        if (date != null) {
+            String formattedDate = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+            pickDate.setText("Ausgewähltes Datum: " + formattedDate);
+        } else {
+            pickDate.setText("Ausgewähltes Datum: ");
+        }
+        pickDate.setId("selected-date-text");
+        add(pickDate);
     }
 
     public void updateInterval(LocalDate intervalStart) {

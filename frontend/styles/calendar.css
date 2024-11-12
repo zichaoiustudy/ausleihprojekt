@@ -7,9 +7,9 @@
 }
 
 .entry {
-    min-height: 40px;
-    border-radius: 17px;
-    opacity: 75%;
+    min-height: 32px;
+    border-radius: 5px;
+    opacity: 70%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -32,11 +32,15 @@
 
 .calendar-toolbar {
     gap: 5px;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
 }
 
 .calendar-toolbar button {
     border-radius: 5px;
     font-size: 10px;
+    padding: 0;
     margin: 0;
 }
 
@@ -54,4 +58,12 @@
 
 #today-button {
     border-radius: 25px;
+}
+
+#selected-date-text {
+    width: 150px;
+    font-size: 14px;
+    text-align: end;
+    justify-content: start;
+    flex-grow: 0;
 }
