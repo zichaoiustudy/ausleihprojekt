@@ -8,7 +8,7 @@
     </parent>
 
     <groupId>iustudy.webdev</groupId>
-    <artifactId>AusleihProject</artifactId>
+    <artifactId>ausleihproject</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AusleihProject</name>
     <description>AusleihProject</description>

@@ -21,8 +21,8 @@ Nicht funktionale Anforderungen:
 Geräte-class:
 - id: int               // eindeutige ID
 - type : string         // Typ des Geräts (Phone/Camera/Keyboard...)
-- model: string          // Modell des Geräts (iPhone 13 mini 128gb red/Canon EOS 2000D Kit 18-55mm IS II/...)
-- status: enum           // Status des Geräts (available/rented/missing)
+- model: string         // Modell des Geräts (iPhone 13 mini 128gb red/Canon EOS 2000D Kit 18-55mm IS II/...)
+- status: enum          // Status des Geräts (available/rented/missing)
 - max_days: int         // Maximale Ausleihdauer
 
 Buchung-class:
@@ -41,7 +41,7 @@ CRUD:
         alle Geräte
         alle Buchungen
         Buchungen nach Geräte
-        Suchung nach id/Geräte/Typ/
+        Suchung nach Geräte/Typ
     update:
         Geräte (admin)
         Buchung (only return_date)
