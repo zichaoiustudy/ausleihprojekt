@@ -16,6 +16,8 @@ Wir verwenden die lokalen Datenbankkontoinformationen des Standardbenutzers `pos
 
 Wenn der Benutzer die Seite der Mini-Web-App öffnet, wird er mit der Begrüßung **"Willkommen bei der Geräteausleihe"** und einem passenden Hintergrund empfangen. Unmittelbar darunter befindet sich ein **Suchfeld**, in das der Benutzer eingeben kann, nach welchem Gerät er gerade sucht. In der oberen rechten Ecke ist außerdem eine **Admin-Schaltfläche** vorhanden.
 
+![img_1.png](img_1.png)
+
 ## Geräteverwaltung (Admin)
 
 Unter dem Admin-Punkt wird eine **Geräteliste** angezeigt, die verschiedene Geräte zum Ausleihen auflistet. Jedes Gerät enthält die folgenden Informationen:
@@ -28,6 +30,8 @@ Unter dem Admin-Punkt wird eine **Geräteliste** angezeigt, die verschiedene Ger
 
 Der **Admin** kann diese Geräte verwalten und neue Geräte hinzufügen. Zusätzlich gibt es eine **Suchfunktion**, die es ermöglicht, die Geräte gezielt zu filtern.
 
+![img_3.png](img_3.png)
+
 ## Navigation
 
 In der linken oberen Ecke kann zwischen zwei Ansichten gewechselt werden:
@@ -35,9 +39,13 @@ In der linken oberen Ecke kann zwischen zwei Ansichten gewechselt werden:
 - **Geräteliste**
 - **Buchungsübersicht**
 
+![img_4.png](img_4.png)
+
 ## Buchungsübersicht
 
 Auf der **Buchungsseite** wird angezeigt, wer welches Gerät ausgeliehen hat und wie lange es gebucht ist.
+
+![img_5.png](img_5.png)
 
 ## Geräte suchen und buchen
 
@@ -48,8 +56,12 @@ Wenn der Benutzer nun ein **Gerät sucht**, sieht er alle verfügbaren Geräte s
 
 Der Benutzer kann auf ein bestimmtes Datum im Kalender klicken, um das gewünschte **Ausleihdatum** festzulegen.
 
+![img_7.png](img_7.png)
+
 ## Gerät buchen
 
 Nachdem der Benutzer ein Datum ausgewählt hat, hat er die Möglichkeit, das Gerät zu buchen, indem er seinen **Namen** angibt. Zusätzlich wird die **Buchungshistorie** des Geräts angezeigt.
+
+![img_8.png](img_8.png)
 
 Der Benutzer kann auch auf die **vorherige Ansicht** zurückkehren.
