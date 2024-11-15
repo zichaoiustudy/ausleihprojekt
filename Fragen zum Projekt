@@ -1,17 +1,17 @@
-//► Welche Überlegungen sind in die Gestaltung der Benutzeroberfläche eingeflossen? 
-//Die Buchung sollte mit Hilfe eines Kalenders für den Nutzer vereinfacht werden.
+► Welche Überlegungen sind in die Gestaltung der Benutzeroberfläche eingeflossen? 
+Die Buchung sollte mit Hilfe eines Kalenders für den Nutzer vereinfacht werden.
 
-//► Wie werden wiederkehrende Termine gehandhabt und gibt es Einschränkungen? 
-//Die Tage an denen ein Gerät ausgeliehen wurde, werden im Kalender gesperrt.
+► Wie werden wiederkehrende Termine gehandhabt und gibt es Einschränkungen? 
+Die Tage an denen ein Gerät ausgeliehen wurde, werden im Kalender gesperrt.
 
-//► Welche Technologie wurde für die Entwicklung der Webapp verwendet (Frontend, Backend, Datenbanken)?
-//Mit Hilfe eines Plugins wurde der Kalender generiert.
-//Datenbank: PreSQL
-//Frontend: 
-//Backend:
+► Welche Technologie wurde für die Entwicklung der Webapp verwendet (Frontend, Backend, Datenbanken)?
+Mit Hilfe eines Plugins wurde der Kalender generiert.
+Datenbank: PreSQL
+Frontend: 
+Backend:
 
-//► Gibt es eine Push-Benachrichtigungsfunktion? 
-//Ja der Benutzer erhält eine Benachrichtung in Form eines Fenster, welches sich bei der Buchung öffnet und dem Nutzer erklärt wie er das Gerät ausleiht und danach auch wieder zurück gibt.
+► Gibt es eine Push-Benachrichtigungsfunktion? 
+Ja der Benutzer erhält eine Benachrichtung in Form eines Fenster, welches sich bei der Buchung öffnet und dem Nutzer erklärt wie er das Gerät ausleiht und danach auch wieder zurück gibt.
 
-//► Werden lokale Daten gespeichert oder alles serverseitig? 
-//Es wird lokal auf einer Datenbank gespeichert und synchronisiert
+► Werden lokale Daten gespeichert oder alles serverseitig? 
+Es wird lokal auf einer Datenbank gespeichert und synchronisiert
