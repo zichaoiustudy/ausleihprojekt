@@ -18,7 +18,7 @@ Wir verwenden die lokalen Datenbankkontoinformationen des Standardbenutzers `pos
 
 Wenn der Benutzer die Seite der Mini-Web-App öffnet, wird er mit der Begrüßung **"Willkommen bei der Geräteausleihe"** und einem passenden Hintergrund empfangen. Unmittelbar darunter befindet sich ein **Suchfeld**, in das der Benutzer eingeben kann, nach welchem Gerät er gerade sucht. In der oberen rechten Ecke ist außerdem eine **Admin-Schaltfläche** vorhanden.
 
-![img_1.png](img_1.png)
+![img](https://github.com/user-attachments/assets/c01847b7-d536-4638-b4ee-0c3c7b0dc07b)
 
 ## Geräteverwaltung (Admin)
 
@@ -32,7 +32,7 @@ Unter dem Admin-Punkt wird eine **Geräteliste** angezeigt, die verschiedene Ger
 
 Der **Admin** kann diese Geräte verwalten und neue Geräte hinzufügen. Zusätzlich gibt es eine **Suchfunktion**, die es ermöglicht, die Geräte gezielt zu filtern.
 
-![img_3.png](img_3.png)
+![img_3](https://github.com/user-attachments/assets/3b8ca3af-e4ba-419e-90ff-401cae403835)
 
 ## Navigation
 
@@ -41,13 +41,13 @@ In der linken oberen Ecke kann zwischen zwei Ansichten gewechselt werden:
 - **Geräteliste**
 - **Buchungsübersicht**
 
-![img_4.png](img_4.png)
+![img_4](https://github.com/user-attachments/assets/f5e0f2d9-c3c1-45e4-9a94-7487c025156f)
 
 ## Buchungsübersicht
 
 Auf der **Buchungsseite** wird angezeigt, wer welches Gerät ausgeliehen hat und wie lange es gebucht ist.
 
-![img_5.png](img_5.png)
+![img_5](https://github.com/user-attachments/assets/89bb78d7-c02e-4e83-b610-d5091cc840f4)
 
 ## Geräte suchen und buchen
 
@@ -58,13 +58,13 @@ Wenn der Benutzer nun ein **Gerät sucht**, sieht er alle verfügbaren Geräte s
 
 Der Benutzer kann auf ein bestimmtes Datum im Kalender klicken, um das gewünschte **Ausleihdatum** festzulegen.
 
-![img_7.png](img_7.png)
+![img_7](https://github.com/user-attachments/assets/0adcc931-66da-4a48-8cae-fff48123d7e6)
 
-## Gerät buchen
+## Gerät buchen mit Hilfe einer Kalenderintegration
 
 Nachdem der Benutzer ein Datum ausgewählt hat, hat er die Möglichkeit, das Gerät zu buchen, indem er seinen **Namen** angibt. Zusätzlich wird die **Buchungshistorie** des Geräts angezeigt und der Status auf **"vermietet"** gesetzt.
 
-![img_8.png](img_8.png)
+![img_8](https://github.com/user-attachments/assets/d24c7ecc-29fa-49a2-90d5-20afed7a16d0)
 
 Im Kalender werden die Tage für die **maximale Ausleihdauer** des Gerätes farblich markiert.
 
