@@ -1,8 +1,8 @@
 ► Welche Überlegungen sind in die Gestaltung der Benutzeroberfläche eingeflossen? 
 Die Buchung sollte mit Hilfe eines Kalenders für den Nutzer vereinfacht werden.
 
-► Wie werden wiederkehrende Termine gehandhabt und gibt es Einschränkungen? 
-Die Tage an denen ein Gerät ausgeliehen wurde, werden im Kalender gesperrt.
+► Wie werden wiederkehrende Termine gehandhabt? 
+Die Tage an denen ein Gerät ausgeliehen wurde, werden im Kalender farbig markiert. Mehrere Buchungen sind möglich.
 
 ► Welche Technologie wurde für die Entwicklung der Webapp verwendet (Frontend, Backend, Datenbanken)?
 Mit Hilfe eines Plugins wurde der Kalender generiert.
