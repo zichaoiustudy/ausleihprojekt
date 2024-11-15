@@ -31,12 +31,15 @@ public class CalendarToolbar extends HorizontalLayout {
         initDateItems();
     }
 
+    //Initialisierung der Steuerelemente und Buttons für die Toolbar
     private void initDateItems() {
         setWidthFull();
 
+        // Erstellt Button für Navigierung zum vorherigen Monat
         Button prevButton = new Button(VaadinIcon.ANGLE_LEFT.create(), e -> calendar.previous());
         prevButton.setId("period-previous-button");
 
+        // Initialisiert DatePicker, um ein Datum auszuwählen
         DatePicker gotoDate = new DatePicker();
         gotoDate.setLocale(Locale.GERMANY);
         gotoDate.addValueChangeListener(event1 -> calendar.gotoDate(event1.getValue()));
@@ -51,12 +54,15 @@ public class CalendarToolbar extends HorizontalLayout {
         buttonDatePicker.setIconAfterText(true);
         buttonDatePicker.setWidth("240px");
 
+        // Erstellt Button für Navigierung zum nächsten Monat
         Button nextButton = new Button(VaadinIcon.ANGLE_RIGHT.create(), e -> calendar.next());
         nextButton.setId("period-next-button");
 
+        // Erstellt Button für Navigierung zum heutigen Tag
         Button todayButton = new Button("Heute", e -> calendar.today());
         todayButton.setId("today-button");
 
+        // Zeigt ausgewähltes Datum an
         pickDate = new Span("Ausgewähltes Datum: ");
         pickDate.setId("selected-date-text");
 
