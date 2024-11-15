@@ -62,8 +62,17 @@ Der Benutzer kann auf ein bestimmtes Datum im Kalender klicken, um das gewünsch
 
 ## Gerät buchen
 
-Nachdem der Benutzer ein Datum ausgewählt hat, hat er die Möglichkeit, das Gerät zu buchen, indem er seinen **Namen** angibt. Zusätzlich wird die **Buchungshistorie** des Geräts angezeigt.
+Nachdem der Benutzer ein Datum ausgewählt hat, hat er die Möglichkeit, das Gerät zu buchen, indem er seinen **Namen** angibt. Zusätzlich wird die **Buchungshistorie** des Geräts angezeigt und der Status auf **"vermietet"** gesetzt.
 
 ![img_8.png](img_8.png)
+
+Im Kalender werden die Tage für die **maximale Ausleihdauer** des Gerätes farblich markiert.
+
+![Maximale Ausleihdauer](https://github.com/user-attachments/assets/918e0bbe-2406-4d2a-a641-ae586862dcf4)
+
+Im Kalender wird nach Abgabe des Gerätes die Buchung in der Buchungshistorie vervollständigt und der Status des Gerätes wird auf **"verfügbar"** geändert. Der **Zeitraum** der vollendeten Buchung wird auch im Kalender markiert.
+
+![Zeitraum](https://github.com/user-attachments/assets/e74dd468-2089-40d8-91b3-13bc81424313)
+
 
 Der Benutzer kann auch auf die **vorherige Ansicht** zurückkehren.
