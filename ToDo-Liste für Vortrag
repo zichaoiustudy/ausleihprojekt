@@ -1,0 +1,39 @@
+TO DO ---------------------------------------------------------------------------------------------------------------------------
+♦ !!!! Dokument hochladen mit den technischen Anforderungen und technische Doku in Teams (unsere Namen hinzufügen).
+♦ !!!! Dokument hochladen mit Fragen zum Projekt in Teams (unsere Namen hinzufügen)
+♦ Plan grafisch angeben wie alles lokal gespeichert ist. Die Erweiterung auf Server in Zukunft zeigen.
+♦ Server und Clientseitig, Datenbank wie wird was umgesetzt → Architektur dahinter
+♦ Begründen warum etwas wie gemacht oder dafür entschieden und nicht anders für etwas anderes: Datenbank, Vaadin, Java, ….. ?
+♦ Technik Flow der Push Benachrichtigung zeigen (Vaadin Funktion, Features zeigen)
+♦ Plugins von Vaadin (FullCalendar,...)
+♦ Code conventions?
+♦ CRUD Funktionen erklären
+♦ ISO 25010 auf unser Projekt anwenden
+♦ Probleme erläutern: was war schwer, was neu ?
+♦ Wie könnte das Programm erweitert werden ?
+♦ Quellen: ...
+---------------------------------------------------------------------------------------------------------------------------------
+
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+├ Vortrag: Gliederung, Einteilung wer was übernimmt
+├─┐
+│ ├ Zichao:
+│ ├ ■
+│ ├ ■
+│ ├ ■
+│ └ ■
+│
+├─┐
+│ ├ Melvin:
+│ ├ ■
+│ ├ ■
+│ ├ ■
+│ └ ■
+│
+├─┐
+│ ├ Philipp:
+│ ├ ■ Kalenderintegraion vorstellen, grob Quelltext dahinter erklären (CalendarToolbar,CalendarView)
+│ ├ ■
+│ ├ ■
+│ └ ■
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
