@@ -68,11 +68,10 @@ Nachdem der Benutzer ein Datum ausgewählt hat, hat er die Möglichkeit, das Ger
 
 Im Kalender werden die Tage für die **maximale Ausleihdauer** des Gerätes farblich markiert.
 
-![Maximale Ausleihdauer](https://github.com/user-attachments/assets/918e0bbe-2406-4d2a-a641-ae586862dcf4)
+![Maximale Ausleihdauer](https://github.com/user-attachments/assets/23a1ffcf-7047-4535-9727-4de830c4b58e)
 
 Im Kalender wird nach Abgabe des Gerätes die Buchung in der Buchungshistorie vervollständigt und der Status des Gerätes wird auf **"verfügbar"** geändert. Der **Zeitraum** der vollendeten Buchung wird auch im Kalender markiert.
 
-![Zeitraum](https://github.com/user-attachments/assets/e74dd468-2089-40d8-91b3-13bc81424313)
-
+![Zeitraum](https://github.com/user-attachments/assets/d8331e93-29ee-410b-a924-1ff933d4ba41)
 
 Der Benutzer kann auch auf die **vorherige Ansicht** zurückkehren.
