@@ -26,7 +26,7 @@ public class MainService {
     public Device findDevice(long id) { return deviceRepository.findById(id).orElse(null); }
 
     public List<Device> searchDevices(String searchTerm) {
-        if (searchTerm == null || searchTerm.isEmpty() || searchTerm.isBlank())
+        if (searchTerm == null || searchTerm.isBlank())
             return findAllDevices();
         else return deviceRepository.search(searchTerm);
     }
@@ -79,7 +79,7 @@ public class MainService {
     }
 
     public List<Booking> searchBookings(String searchTerm) {
-        if (searchTerm == null || searchTerm.isEmpty() || searchTerm.isBlank())
+        if (searchTerm == null || searchTerm.isBlank())
             return findAllBookings();
         else return bookingRepository.search(searchTerm);
     }
