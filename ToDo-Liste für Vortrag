@@ -4,7 +4,9 @@ TO DO --------------------------------------------------------------------------
 ♦ Server und Clientseitig, Datenbank wie wird was umgesetzt → Architektur dahinter
 ♦ Begründen warum etwas wie gemacht oder dafür entschieden und nicht anders für etwas anderes: Datenbank, Vaadin, Java, ….. ?
 ♦ Technik Flow der Push Benachrichtigung zeigen (Vaadin Funktion, Features zeigen)
+♦ Plugins von Vaadin (FullCalendar,...)
 ♦ Code conventions?
+♦ CRUD Funktionen erklären
 ♦ ISO 25010 auf unser Projekt anwenden
 ♦ Probleme erläutern: was war schwer, was neu ?
 ♦ Wie könnte das Programm erweitert werden ?
