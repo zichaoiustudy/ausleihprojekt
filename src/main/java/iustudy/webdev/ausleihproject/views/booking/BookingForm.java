@@ -14,7 +14,6 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import iustudy.webdev.ausleihproject.data.Booking;
 import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
 import lombok.Setter;
 
@@ -71,15 +70,14 @@ public class BookingForm extends VerticalLayout {
 
             String returnDate;
             if (booking.getReturnDate() == null) {
-                String color = (device.getStatus() == DeviceStatus.MISSING) ? "red" : "orange";
-                button.getStyle().set("color", color);
+                button.getStyle().set("color", device.getStatus().getColor());
                 returnDate = "";
 
                 LocalDate startDate = booking.getBorrowDate().isAfter(LocalDate.now())
                         ? booking.getBorrowDate().plusDays(1)
                         : LocalDate.now().plusDays(1);
                 calendar.createEntry(startDate, booking.getBorrowDate().plusDays(device.getMaxDays()), "#FFCCCB", true);
-                calendar.createEntry(booking.getBorrowDate(), LocalDate.now(), color);
+                calendar.createEntry(booking.getBorrowDate(), LocalDate.now(), device.getStatus().getColor());
             } else {
                 returnDate = booking.getReturnDate().format(formatter);
                 calendar.createEntry(booking.getBorrowDate(), booking.getReturnDate(), "gray");

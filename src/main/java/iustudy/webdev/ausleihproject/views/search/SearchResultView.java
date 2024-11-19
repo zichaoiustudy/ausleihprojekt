@@ -8,7 +8,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.*;
 import iustudy.webdev.ausleihproject.data.Device;
-import iustudy.webdev.ausleihproject.data.DeviceStatus;
 import iustudy.webdev.ausleihproject.service.MainService;
 import iustudy.webdev.ausleihproject.views.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +58,10 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
 
         grid.addColumn(new ComponentRenderer<>(device -> {
             Span statusSpan = new Span();
-            String statusText = getStatusText(device.getStatus());
-            String color = getStatusColor(device.getStatus());
-
-            statusSpan.setText(statusText);
-            statusSpan.getStyle().set("color", color);
+            statusSpan.setText(device.getStatus().getGermanName());
+            statusSpan.getStyle().set("color", device.getStatus().getColor());
             return statusSpan;
+
         })).setHeader("Status").setAutoWidth(true).setSortable(true).setComparator(Device::getStatus);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
 
@@ -72,22 +69,6 @@ public class SearchResultView extends VerticalLayout implements BeforeEnterObser
             Device clickedDevice = event.getItem();
             UI.getCurrent().navigate("booking/" + clickedDevice.getId());
         });
-    }
-
-    public static String getStatusText(DeviceStatus status) {
-        return switch (status) {
-            case RENTED -> "vermietet";
-            case MISSING -> "fehlend";
-            default -> "verfügbar";
-        };
-    }
-
-    public static String getStatusColor(DeviceStatus status) {
-        return switch (status) {
-            case RENTED -> "orange";
-            case MISSING -> "red";
-            default -> "green";
-        };
     }
 
 }

@@ -17,9 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-import static iustudy.webdev.ausleihproject.views.search.SearchResultView.getStatusColor;
-import static iustudy.webdev.ausleihproject.views.search.SearchResultView.getStatusText;
-
 @Route(value = "booking/:deviceId", layout = MainLayout.class)
 @PageTitle("IU Webprogrammierung | Gerätedetails")
 public class BookingView extends VerticalLayout implements BeforeEnterObserver {
@@ -66,10 +63,7 @@ public class BookingView extends VerticalLayout implements BeforeEnterObserver {
         H3 maxDays = new H3("Maximale Ausleihdauer: " +
                 (device.getMaxDays() == 0 ? "unbegrenzt" : device.getMaxDays() + " Tage"));
 
-        String statusText = getStatusText(device.getStatus());
-        String color = getStatusColor(device.getStatus());
-
-        String statusHtml = "<span style='color:" + color + "'>" + statusText + "</span>";
+        String statusHtml = "<span style='color:" + device.getStatus().getColor() + "'>" + device.getStatus().getGermanName() + "</span>";
         H3 status = new H3("Status: " + statusHtml);
         status.getElement().setProperty("innerHTML", "Status: " + statusHtml);
 
