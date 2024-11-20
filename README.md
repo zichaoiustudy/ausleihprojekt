@@ -43,6 +43,10 @@ Die Anwendung folgt einem klassischen Drei-Schichten-Modell:
 2. **Backend**: Implementiert in Spring Boot für robuste Geschäftslogik und Datenverarbeitung.
 3. **Datenbank**: PostgreSQL speichert Geräte- und Buchungsdaten.
 
+## Projekt UML-Diagramm
+
+![ausleihProjectClassUML drawio](https://github.com/user-attachments/assets/394ea150-3920-4d4a-9052-72623097d843)
+
 ## Vorbereitung
 
 Um den Code auszuführen, benötigen Sie eine PostgreSQL-Datenbank auf Ihrem lokalen Rechner. Sie können diese [hier](https://www.postgresql.org/download/) herunterladen.
