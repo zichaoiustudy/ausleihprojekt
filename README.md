@@ -1,3 +1,48 @@
+# Geräteausleihe Mini-Web-App
+
+## Projektübersicht
+
+Dieses Projekt abzielt darauf, ein digitales Ausleihsystem für Geräte zu entwickeln. Die Mini-Web-App ermöglicht es Benutzern, Geräte zu suchen, zu buchen und zu verwalten. Die Anwendung kombiniert Benutzerfreundlichkeit und Funktionalität, um die Verwaltung und Ausleihe effizient zu gestalten.
+
+## Anforderungen und Spezifikationen
+
+### Ziele der Mini-App
+
+Die Mini-Web-App dient als digitales Ausleihsystem, das die Verwaltung von Geräten optimiert. Benutzer können Geräte suchen, ausleihen und zurückgeben, während ein Admin erweiterte Verwaltungsfunktionen nutzen kann. Die App bietet zudem eine visuelle Darstellung von Buchungen in einem Kalender.
+
+### Funktionale Anforderungen
+
+1. Benutzer können eine grafische Benutzeroberfläche bedienen.
+2. Benutzer können Geräte ausleihen.
+3. Benutzer können Geräte zurückgeben.
+4. Benutzer können die verfügbaren Geräte sehen.
+5. Alle Daten werden in einer Datenbank gespeichert.
+6. Benutzer können Buchungen in einem Kalender visualisieren.
+
+### Nicht-funktionale Anforderungen
+
+1. Benutzerfreundliches UI-Design.
+2. Geräte können über eine Suchfunktion gefunden werden.
+3. Die Suchergebnisse können sortiert werden.
+4. Ein Admin kann CRUD-Operationen durchführen.
+5. Die maximale Ausleihdauer eines Geräts wird durch die Anwendung überwacht.
+
+### Technische Spezifikationen
+
+- Spring-boot
+- Vaadin
+- Hibernate
+- PostgreSQL
+- Lombok
+- Fullcalendar (Vaadin plug-in)
+
+## Architektur der App
+
+Die Anwendung folgt einem klassischen Drei-Schichten-Modell:
+1. **Frontend**: Erstellt mit Vaadin, bietet eine moderne und interaktive Benutzeroberfläche.
+2. **Backend**: Implementiert in Spring Boot für robuste Geschäftslogik und Datenverarbeitung.
+3. **Datenbank**: PostgreSQL speichert Geräte- und Buchungsdaten.
+
 ## Vorbereitung
 
 Um den Code auszuführen, benötigen Sie eine PostgreSQL-Datenbank auf Ihrem lokalen Rechner. Sie können diese [hier](https://www.postgresql.org/download/) herunterladen.
