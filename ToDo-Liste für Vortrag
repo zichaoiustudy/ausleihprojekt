@@ -18,22 +18,22 @@ TO DO --------------------------------------------------------------------------
 ├ Vortrag: Gliederung, Einteilung wer was übernimmt
 ├─┐
 │ ├ Zichao:
-│ ├ ■
-│ ├ ■
+│ ├ ■ Architektur
+│ ├ ■ Code
 │ ├ ■
 │ └ ■
 │
 ├─┐
 │ ├ Melvin:
-│ ├ ■
-│ ├ ■
+│ ├ ■ Einleitung
+│ ├ ■ User Interface vorstellen
 │ ├ ■
 │ └ ■
 │
 ├─┐
 │ ├ Philipp:
-│ ├ ■ Kalenderintegraion vorstellen, grob Quelltext dahinter erklären (CalendarToolbar,CalendarView)
-│ ├ ■
+│ ├ ■ Technische Anforderungen 
+│ ├ ■ Zukunftserweiterung
 │ ├ ■
 │ └ ■
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
