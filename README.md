@@ -38,14 +38,14 @@ Die Mini-Web-App dient als digitales Ausleihsystem, das die Verwaltung von Gerä
 
 ## Architektur der App
 
-Die Anwendung folgt einem klassischen Drei-Schichten-Modell:
-1. **Frontend**: Erstellt mit Vaadin, bietet eine moderne und interaktive Benutzeroberfläche.
-2. **Backend**: Implementiert in Spring Boot für robuste Geschäftslogik und Datenverarbeitung.
-3. **Datenbank**: PostgreSQL speichert Geräte- und Buchungsdaten.
-
-## Projekt UML-Diagramm
+MSV (Model-Service-View) ist die Architektur, die in diesem Projekt verwendet wird. Die Anwendung besteht aus drei Hauptkomponenten:
+1. **Model**: Repräsentiert die Daten und Geschäftslogik der Anwendung. Es umfasst die Entitäten und deren Beziehungen, typischerweise verwaltet durch JPA und Hibernate.
+2. **Service**: Enthält die Geschäftslogik und verwaltet die Interaktion zwischen Model und View. Es wird mit Spring Boot Services implementiert.
+3. **View**: Bietet die Benutzeroberfläche und Benutzererfahrung. Es wird mit Vaadin erstellt, um eine moderne und interaktive UI zu bieten, und interagiert über die Service-Schicht mit dem Model.
 
 ![ausleihProjectClassUML drawio](https://github.com/user-attachments/assets/394ea150-3920-4d4a-9052-72623097d843)
+
+# Bedienungsanleitung
 
 ## Vorbereitung
 
@@ -60,8 +60,6 @@ Erstellen Sie eine Datenbank mit dem Namen `geraeteausleihe`. Sie können dies i
 ### Datenbankverbindung
 
 Wir verwenden die lokalen Datenbankkontoinformationen des Standardbenutzers `postgres` mit dem Passwort `admin1`. Wenn Sie ein anderes Passwort haben oder einen anderen Benutzer verwenden möchten, können Sie die Informationen in der Datei `/src/main/resources/application.properties` ändern.
-
-# Geräteausleihe Mini-Web-App
 
 ## Überblick
 
