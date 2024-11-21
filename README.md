@@ -30,6 +30,7 @@ Die Mini-Web-App dient als digitales Ausleihsystem, das die Verwaltung von Gerä
 ### Technische Spezifikationen
 
 - Spring-boot
+- Maven
 - Vaadin
 - Hibernate
 - PostgreSQL
