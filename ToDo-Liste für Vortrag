@@ -1,7 +1,6 @@
 TO DO ---------------------------------------------------------------------------------------------------------------------------
 ♦ !!!! Dokument hochladen mit den technischen Anforderungen und technische Doku in Teams (unsere Namen hinzufügen).
 ♦ !!!! Dokument hochladen mit Fragen zum Projekt in Teams (unsere Namen hinzufügen)
-♦ ISO 25010 auf unser Projekt anwenden
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -11,19 +10,19 @@ TO DO --------------------------------------------------------------------------
 │ ├ ■ 4. Architektur (Server und Clientseitig, Datenbank wie wird was umgesetzt)
 │ ├ ■ 5. Code: Plugins von Vaadin (FullCalendar,...)
 │ ├ ■ Code conventions: Datenbank, Vaadin, Java, Github, ...
-│ └ ■
+│ └ ■ (Vertiefungsfrage) Warum MSV benutzen?
 │
 ├─┐
 │ ├ Melvin:
 │ ├ ■ 1. Einleitung + Ziele Mini-App
 │ ├ ■ 6. User Interface vorstellen: Technik Flow der Push Benachrichtigung zeigen (Vaadin Funktion, Features zeigen)
-│ ├ ■ 8. Reflektion des Projektes: Wie sind wir vorgegangen? , Probleme, wieso Java + PostgreSQL, ... (Vertiefungsfrage)
+│ ├ ■ 9. (Vertiefungsfrage) Reflektion des Projektes: Wie sind wir vorgegangen? , Probleme, wieso Java + PostgreSQL, ... 
 │ └ ■
 │
 ├─┐
 │ ├ Philipp:
 │ ├ ■ 2. Technische Anforderungen + CRUD Funktionen erklären
 │ ├ ■ 3. Nicht funktionale
-│ ├ ■ 7. Zukunftserweiterung (Vertiefungsfrage)
-│ └ ■
+│ ├ ■ 7. (Vertiefungsfrage) Zukunftserweiterung?
+│ └ ■ 8. ISO 25010 auf unser Projekt anwenden
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
