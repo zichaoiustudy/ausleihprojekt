@@ -1,10 +1,7 @@
 TO DO ---------------------------------------------------------------------------------------------------------------------------
 ♦ !!!! Dokument hochladen mit den technischen Anforderungen und technische Doku in Teams (unsere Namen hinzufügen).
 ♦ !!!! Dokument hochladen mit Fragen zum Projekt in Teams (unsere Namen hinzufügen)
-♦ Begründen warum etwas wie gemacht oder dafür entschieden und nicht anders für etwas anderes: Datenbank, Vaadin, Java, ….. ?
-♦ Technik Flow der Push Benachrichtigung zeigen (Vaadin Funktion, Features zeigen)
 ♦ ISO 25010 auf unser Projekt anwenden
-♦ Probleme erläutern: was war schwer, was neu ?
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -13,13 +10,13 @@ TO DO --------------------------------------------------------------------------
 │ ├ Zichao:
 │ ├ ■ 4. Architektur (Server und Clientseitig, Datenbank wie wird was umgesetzt)
 │ ├ ■ 5. Code: Plugins von Vaadin (FullCalendar,...)
-│ ├ ■ Code conventions: Github, ...
+│ ├ ■ Code conventions: Datenbank, Vaadin, Java, Github, ...
 │ └ ■
 │
 ├─┐
 │ ├ Melvin:
 │ ├ ■ 1. Einleitung + Ziele Mini-App
-│ ├ ■ 6. User Interface vorstellen
+│ ├ ■ 6. User Interface vorstellen: Technik Flow der Push Benachrichtigung zeigen (Vaadin Funktion, Features zeigen)
 │ ├ ■ 8. Reflektion des Projektes: Wie sind wir vorgegangen? , Probleme, wieso Java + PostgreSQL, ... (Vertiefungsfrage)
 │ └ ■
 │
