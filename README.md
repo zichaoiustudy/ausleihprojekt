@@ -44,6 +44,7 @@ MSV (Model-Service-View) ist die Architektur, die in diesem Projekt verwendet wi
 2. **Service**: Enthält die Geschäftslogik und verwaltet die Interaktion zwischen Model und View. Es wird mit Spring Boot Services implementiert.
 3. **View**: Bietet die Benutzeroberfläche und Benutzererfahrung. Es wird mit Vaadin erstellt, um eine moderne und interaktive UI zu bieten, und interagiert über die Service-Schicht mit dem Model.
 
+## Klassen UML-Diagramm (Datenmodell)
 ![ausleihProjectClassUML drawio](https://github.com/user-attachments/assets/394ea150-3920-4d4a-9052-72623097d843)
 
 # Bedienungsanleitung
